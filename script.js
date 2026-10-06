@@ -1,5 +1,5 @@
 /**
- * FitForge - Bilimsel & Kişiselleştirilmiş Antrenman ve Güç Motoru
+ * Vyranux - Bilimsel & Kişiselleştirilmiş Antrenman ve Güç Motoru
  * Vanilla JavaScript Temiz & Modüler Mimari
  */
 
@@ -98,7 +98,7 @@ function createExerciseVisualSvg(category, name) {
       <rect x="106" y="33" width="4" height="13" fill="#10b981" rx="1" />
       
       <text x="80" y="93" fill="#64748b" font-size="7" font-weight="600" text-anchor="middle" letter-spacing="1">
-        FITFORGE BIOMECHANICS
+        VYRANUX BIOMECHANICS
       </text>
     </svg>
   `;
@@ -1013,7 +1013,7 @@ export function renderProgressTable(user) {
 }
 
 // --- 7.3. FOTOĞRAF GÜNLÜĞÜ (PHOTO TRACKER) ---
-const PHOTOS_STORAGE_KEY = 'fitforge_progress_photos_v1';
+const PHOTOS_STORAGE_KEY = 'vyranux_progress_photos_v1';
 
 export function renderPhotoGallery() {
   const container = document.getElementById('photo-gallery-grid');
@@ -1097,7 +1097,7 @@ export function renderPhotoGallery() {
 
 function getStoredPhotos() {
   try {
-    const raw = localStorage.getItem(PHOTOS_STORAGE_KEY) || localStorage.getItem('fitplan_progress_photos_v1');
+    const raw = localStorage.getItem(PHOTOS_STORAGE_KEY) || localStorage.getItem('fitforge_progress_photos_v1') || localStorage.getItem('fitplan_progress_photos_v1');
     if (raw) return JSON.parse(raw);
   } catch (err) {
     console.warn(err);
@@ -1604,7 +1604,7 @@ export function initResultsTabs() {
 
 // --- 7.8. TEMA SİSTEMİ (AYDINLIK, SU ALTI, ORMAN, CYBER, KARANLIK) ---
 export function initTheme() {
-  const savedTheme = localStorage.getItem('fitforge_theme_v1') || localStorage.getItem('fitplan_theme_v1') || 'dark';
+  const savedTheme = localStorage.getItem('vyranux_theme_v1') || localStorage.getItem('fitforge_theme_v1') || localStorage.getItem('fitplan_theme_v1') || 'dark';
   setTheme(savedTheme);
 
   const selector = document.getElementById('theme-selector');
@@ -1619,7 +1619,7 @@ export function initTheme() {
 
 export function setTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('fitforge_theme_v1', theme);
+  localStorage.setItem('vyranux_theme_v1', theme);
 }
 
 // --- 7.9. KULLANICI PROFİL SİSTEMİ (Kullanıcı Her Bilgiyi Girebilir) ---
@@ -2068,7 +2068,7 @@ export function applyTestScenario(scenarioNumber) {
 }
 
 // --- 10. LOCAL STORAGE SENKRONİZASYONU (Madde 24) ---
-const STORAGE_KEY = 'fitforge_user_data_v1';
+const STORAGE_KEY = 'vyranux_user_data_v1';
 
 export function saveUserData() {
   try {
@@ -2080,7 +2080,7 @@ export function saveUserData() {
 
 export function loadUserData() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('fitplan_user_data_v1');
+    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('fitforge_user_data_v1') || localStorage.getItem('fitplan_user_data_v1');
     if (raw) {
       const parsed = JSON.parse(raw);
       state.userData = { ...state.userData, ...parsed };
@@ -2217,7 +2217,7 @@ function runGenerationLoading() {
     { p: 45, t: 'Haftalık gün dağılımı ve dinlenme periyotları optimize ediliyor...' },
     { p: 70, t: 'Mevcut ekipmanlar ve ortama uygun egzersizler filtreleniyor...' },
     { p: 90, t: 'Hedeflenen hacim, set, tekrar ve dinlenme süreleri hesaplanıyor...' },
-    { p: 100, t: 'Kişisel FitForge programınız hazır!' }
+    { p: 100, t: 'Kişisel Vyranux programınız hazır!' }
   ];
 
   let current = 0;

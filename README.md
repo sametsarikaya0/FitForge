@@ -1,1 +1,3 @@
-Kişisel antrenman programınızı oluşturmanızı sağlayacak bir uygulama. 
+# Vyranux ⚡
+
+Kişisel antrenman, güç ve spor programınızı bilimsel verilere göre oluşturmanızı sağlayan modern web uygulaması.

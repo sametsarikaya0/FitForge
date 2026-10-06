@@ -1,6 +1,6 @@
-# 🚀 FitForge - Vercel Dağıtım Kılavuzu (Deploy to Vercel)
+# 🚀 Vyranux - Vercel Dağıtım Kılavuzu (Deploy to Vercel)
 
-FitForge, Vercel platformunda tek tıkla veya GitHub entegrasyonuyla sorunsuz çalışacak şekilde yapılandırılmıştır.
+Vyranux, Vercel platformunda tek tıkla veya GitHub entegrasyonuyla sorunsuz çalışacak şekilde yapılandırılmıştır.
 
 ---
 
@@ -22,7 +22,7 @@ FitForge, Vercel platformunda tek tıkla veya GitHub entegrasyonuyla sorunsuz ç
 1. **Projeyi GitHub Deponuza Gönderin:**
    ```bash
    git add .
-   git commit -m "FitForge: Vercel ready"
+   git commit -m "Vyranux: Vercel ready"
    git push origin main
    ```
 
@@ -39,7 +39,7 @@ FitForge, Vercel platformunda tek tıkla veya GitHub entegrasyonuyla sorunsuz ç
 
 4. **Çevre Değişkenleri (Environment Variables - İsteğe Bağlı):**
    - `GEMINI_API_KEY`: *(Opsiyonel)* Eğer Gemini modelini canlı çalıştırmak isterseniz Google AI Studio API anahtarınızı ekleyin.
-   - *Not:* API anahtarı eklemeseniz dahi FitForge'un yerel kural motoru %100 kesintisiz ve ücretsiz çalışır!
+   - *Not:* API anahtarı eklemeseniz dahi Vyranux'un yerel kural motoru %100 kesintisiz ve ücretsiz çalışır!
 
 5. **"Deploy" Butonuna Basın:**
    - 30 saniye içinde uygulamanız `https://projeniz.vercel.app` adresinde yayına girecektir.
