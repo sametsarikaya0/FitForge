@@ -1,5 +1,4 @@
 import express, { Request, Response } from 'express';
-import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI } from '@google/genai';
 import dotenv from 'dotenv';
 
@@ -157,13 +156,14 @@ app.post('/api/feedback', (req: Request, res: Response) => {
 
 // Dev ve Prod ortamlarında Vite Middleware entegrasyonu
 async function startServer() {
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
     });
     app.use(vite.middlewares);
-  } else {
+  } else if (!process.env.VERCEL) {
     app.use(express.static('dist'));
   }
 
@@ -172,4 +172,9 @@ async function startServer() {
   });
 }
 
-startServer();
+// Yalnızca doğrudan bağımsız çalıştırıldığında portu dinle (Vercel serverless ortamında export edilen app çalıştırılır)
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export default app;
