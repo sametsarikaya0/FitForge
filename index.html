@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitForge | Hedefine göre, sana özel antrenman</title>
+  <meta name="description" content="Kişiselleştirilmiş spor, antrenman ve güç programı oluşturma web uygulaması. Hedefine, seviyene ve ekipmanlarına özel haftalık egzersiz planı." />
+  <meta property="og:title" content="FitForge | Hedefine göre, sana özel antrenman" />
+  <meta property="og:description" content="Fiziksel özelliklerine ve müsaitliğine göre kişiselleştirilmiş haftalık spor ve kuvvet programı oluşturucu." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <!-- Favicon (Örs Simgesi) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%2310b981'%3E%3Cpath d='M2 11c2.2-1.5 5.5-2 8-2h19c.6 0 1 .4 1 1v4c0 .6-.4 1-1 1h-3c-1.8 0-3.2 1.4-3.8 3.1-.7 2-1.2 3.9-1.2 4.9h4c.6 0 1 .4 1 1v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1h4c0-1-.5-2.9-1.2-4.9-.6-1.7-2-3.1-3.8-3.1H4c-1.8 0-2.8-.7-3.2-1.5-.4-.7-.2-1.6 1.2-2.5z'/%3E%3C/svg%3E" />
+  
+  <!-- CSS Stilleri -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       GLOBAL ARKA PLAN ÖRS KATMANI (Madde: Arka plana örs ekle)
+       ========================================================================= -->
+  <div class="global-anvil-background" aria-hidden="true">
+    <div class="anvil-bg-glow"></div>
+  </div>
+
+  <!-- =========================================================================
+       Site Header (Top Bar Contract: 3 Bölge)
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- Bölge 1: Marka ve Logo (Örs Simgesi) -->
+      <a href="#home" class="brand-zone" id="brand-link" aria-label="FitForge Ana Sayfa">
+        <div class="brand-icon" title="FitForge Örs Simgesi" aria-label="FitForge Örs Simgesi">
+          <svg class="anvil-symbol-svg" viewBox="0 0 32 32" width="22" height="22" fill="currentColor" aria-hidden="true">
+            <path d="M2 11c2.2-1.5 5.5-2 8-2h19c.6 0 1 .4 1 1v4c0 .6-.4 1-1 1h-3c-1.8 0-3.2 1.4-3.8 3.1-.7 2-1.2 3.9-1.2 4.9h4c.6 0 1 .4 1 1v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1h4c0-1-.5-2.9-1.2-4.9-.6-1.7-2-3.1-3.8-3.1H4c-1.8 0-2.8-.7-3.2-1.5-.4-.7-.2-1.6 1.2-2.5z"/>
+          </svg>
+        </div>
+        <span class="brand-title">Fit<span class="brand-accent">Forge</span></span>
+        <span class="brand-tagline-text">Hedefine göre bilimsel antrenman ve güç motoru.</span>
+      </a>
+
+      <!-- Bölge 2: Navigasyon Linkleri -->
+      <nav class="nav-links">
+        <button type="button" class="nav-link" id="nav-btn-library">📚 Kütüphane</button>
+        <button type="button" class="nav-link" id="nav-btn-profile">👤 Profilim</button>
+        <button type="button" class="nav-link" id="nav-btn-feedback">💬 Geri Bildirim</button>
+        <a href="#test-section" class="nav-link">🎓 Testler</a>
+      </nav>
+
+      <!-- Bölge 3: Birincil Aksiyon Butonları & Tema -->
+      <div class="header-actions">
+        <!-- Tema Seçici (Aydınlık, Karanlık, Su Altı, Orman, Cyber) -->
+        <select id="theme-selector" class="theme-select-btn" title="Görünüm Temasını Değiştir" aria-label="Görünüm Teması">
+          <option value="dark">🌙 Karanlık</option>
+          <option value="light">☀️ Aydınlık</option>
+          <option value="ocean">🌊 Su Altı</option>
+          <option value="forest">🌲 Orman</option>
+          <option value="cyber">⚡ Cyber</option>
+        </select>
+        
+        <button type="button" class="btn btn-outline btn-sm" id="nav-btn-reset" title="Tüm bilgileri temizle ve yeni program oluştur">
+          🗑️ Sıfırla
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" id="nav-btn-start">
+          Programını Oluştur
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       Ana İçerik Alanı
+       ========================================================================= -->
+  <main class="main-content">
+
+    <!-- =======================================================================
+         BÖLÜM 1: HOŞ GELDİN & HERO EKRANI (Step 1)
+         ======================================================================= -->
+    <section id="hero-view" class="view-section active">
+      <div class="hero-wrapper">
+        <img 
+          src="./src/assets/images/anvil_forge_bg_1791306872671.jpg" 
+          alt="FitForge Örs & Güç Antrenmanı" 
+          class="hero-backdrop"
+          referrerpolicy="no-referrer"
+          onerror="this.style.display='none'"
+        />
+        <div class="hero-overlay">
+          <div class="hero-badge">
+            <svg class="anvil-mini-svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-right:6px;" aria-hidden="true">
+              <path d="M2 11c2.2-1.5 5.5-2 8-2h19c.6 0 1 .4 1 1v4c0 .6-.4 1-1 1h-3c-1.8 0-3.2 1.4-3.8 3.1-.7 2-1.2 3.9-1.2 4.9h4c.6 0 1 .4 1 1v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1v-2c0-.6.4-1 1-1h4c0-1-.5-2.9-1.2-4.9-.6-1.7-2-3.1-3.8-3.1H4c-1.8 0-2.8-.7-3.2-1.5-.4-.7-.2-1.6 1.2-2.5z"/>
+            </svg>
+            DEMİRHANE GÜÇ & KİŞİSELLEŞTİRİLMİŞ SPOR ALGORİTMASI
+          </div>
+          <h1 class="hero-title">
+            Antrenmanını Rastgele Seçme.<br />
+            <span>Hedefine Göre Oluştur.</span>
+          </h1>
+          <p class="hero-description">
+            Fiziksel özelliklerini, antrenman hedefini, ekipmanlarını ve müsait günlerini analiz ederek sana özel bilimsel haftalık spor programı oluşturan akıllı web uygulaması.
+          </p>
+          <div class="hero-cta-group">
+            <button type="button" class="btn btn-primary btn-lg" id="btn-hero-start">
+              🚀 Programını Oluştur
+            </button>
+            <a href="#test-section" class="btn btn-secondary btn-lg">
+              🎓 Hazır Test Senaryoları
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HAZIR TEST SENARYOLARI (Madde 31 - Üniversite Değerlendirme Çubuğu) -->
+      <div class="test-scenarios-panel" id="test-section">
+        <div class="test-scenarios-header">
+          <div class="test-scenarios-title">
+            <span>🧪 Hazır Test Senaryoları</span>
+            <span class="test-badge">Üniversite Sunum Modu</span>
+          </div>
+          <span style="font-size:12px; color:var(--text-muted);">
+            Aşağıdaki senaryolara tek tıkla tıklayarak şartnamede belirtilen profilleri anında test edebilirsiniz:
+          </span>
+        </div>
+
+        <div class="test-cards-grid">
+          <!-- Test 1 -->
+          <div class="test-scenario-card" id="btn-load-test-1">
+            <div>
+              <div class="test-card-title">
+                <span>Test 1: Spor Salonu (Kuvvet)</span>
+                <span class="btn btn-primary btn-sm">Yükle</span>
+              </div>
+              <p class="test-card-desc">
+                21 yaş, 185 cm, 90 kg. Hedef: Kas kazanımı, Orta seviye, Spor salonu, 4 gün, 60 dakika.
+              </p>
+            </div>
+            <div class="test-card-tags">
+              <span>Upper / Lower Split</span>
+              <span>4 Gün</span>
+              <span>Gym</span>
+            </div>
+          </div>
+
+          <!-- Test 2 -->
+          <div class="test-scenario-card" id="btn-load-test-2">
+            <div>
+              <div class="test-card-title">
+                <span>Test 2: Ev - Ekipmansız</span>
+                <span class="btn btn-primary btn-sm">Yükle</span>
+              </div>
+              <p class="test-card-desc">
+                20 yaş, 175 cm, 85 kg. Hedef: Kilo verme, Başlangıç seviye, Ev, Ekipmansız, 3 gün, 45 dakika.
+              </p>
+            </div>
+            <div class="test-card-tags">
+              <span>Full Body</span>
+              <span>Kardiyo</span>
+              <span>Vücut Ağırlığı</span>
+            </div>
+          </div>
+
+          <!-- Test 3 -->
+          <div class="test-scenario-card" id="btn-load-test-3">
+            <div>
+              <div class="test-card-title">
+                <span>Test 3: Ev - Dambıl & Bench</span>
+                <span class="btn btn-primary btn-sm">Yükle</span>
+              </div>
+              <p class="test-card-desc">
+                Hedef: Kas kazanımı, Ev ortamı, Ekipman: Dambıl + Sehpa, 5 gün, 60 dakika.
+              </p>
+            </div>
+            <div class="test-card-tags">
+              <span>Push / Pull / Legs</span>
+              <span>Dambıl & Sehpa</span>
+              <span>5 Gün</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Öne Çıkan Özellikler -->
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-icon-wrap">⚖️</div>
+          <h4>Kişiye Özel BMI Analizi</h4>
+          <p>Boy, kilo ve yaş parametrelerinize göre vücut kitle endeksinizi hesaplar ve hedef hacmini belirler.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon-wrap">🛡️</div>
+          <h4>Akıllı Ekipman Filtresi</h4>
+          <p>Evdeki ekipmanlarınıza (dambıl, bench, barfiks) veya açık hava şartlarına göre yapılabilir hareketleri seçer.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon-wrap">📅</div>
+          <h4>Haftalık Split Sistemi</h4>
+          <p>2 günden 6 güne kadar Full Body, Upper/Lower ve Push/Pull/Legs bilimsel split modellerini otomatik uyarlar.</p>
+        </div>
+        <div class="feature-box">
+          <div class="feature-icon-wrap">🎬</div>
+          <h4>Biyomekanik & Görsel Rehber</h4>
+          <p>Her egzersiz için set, tekrar, dinlenme süresi, doğru form ve kaçınılması gereken hatalar sunulur.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         BÖLÜM 2: SİHİRBAZ EKRANI (Adım 2 - 10)
+         ======================================================================= -->
+    <section id="wizard-view" class="view-section">
+      <div class="wizard-container">
+        
+        <!-- İlerleme Çubuğu ve Gösterge (Madde 4) -->
+        <div class="wizard-header">
+          <div class="wizard-progress-meta">
+            <span class="step-indicator-badge" id="step-indicator-badge">Adım 1 / 9</span>
+            <span class="step-category-name">FitForge Kurulum Sihirbazı</span>
+          </div>
+          <div class="wizard-progress-bar-bg">
+            <div class="wizard-progress-bar-fill" id="wizard-progress-bar-fill" style="width: 10%;"></div>
+          </div>
+        </div>
+
+        <!-- Hata Bildirim Çubuğu (Madde 27) -->
+        <div class="wizard-error-banner" id="wizard-error-banner"></div>
+
+        <!-- ==================== ADIM 2: KİŞİSEL BİLGİLER ==================== -->
+        <div class="step-pane active" id="step-pane-2">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+            <h2 class="step-title" style="margin-bottom:0;">Kişisel Bilgileriniz</h2>
+            <button type="button" class="btn btn-outline btn-sm" id="btn-reset-form-fields" title="Tüm form alanlarını temizle">
+              🧹 Formu Temizle
+            </button>
+          </div>
+          <p class="step-subtitle">Doğru kalori harcaması ve egzersiz yoğunluğu için fiziksel özelliklerinizi girin.</p>
+
+          <div class="form-grid two-cols">
+            <div class="form-group">
+              <label class="form-label" for="input-name">Adınız Soyadınız</label>
+              <input type="text" id="input-name" class="form-input" placeholder="Örn: Mert Yılmaz" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-age">Yaşınız</label>
+              <input type="number" id="input-age" class="form-input" min="14" max="95" placeholder="Örn: 22" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Cinsiyet</label>
+              <div style="display:flex; gap:16px; margin-top:8px;">
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                  <input type="radio" name="gender" value="erkek" checked /> Erkek
+                </label>
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                  <input type="radio" name="gender" value="kadin" /> Kadın
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-height">Boyunuz (cm)</label>
+              <input type="number" id="input-height" class="form-input" min="120" max="230" placeholder="Örn: 180" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="input-weight">Kilonuz (kg)</label>
+              <input type="number" id="input-weight" class="form-input" min="35" max="250" step="0.5" placeholder="Örn: 78" required />
+            </div>
+          </div>
+
+          <!-- Canlı BMI Önizleme Kartı (Madde 5) -->
+          <div class="bmi-preview-card">
+            <div>
+              <span class="form-hint">Tahmini Vücut Kitle Endeksi (BMI):</span>
+              <div class="bmi-metric">
+                <span class="bmi-value" id="live-bmi-val">--</span>
+                <span class="bmi-badge" id="live-bmi-badge">Bilgi Bekleniyor</span>
+              </div>
+            </div>
+            <p class="bmi-disclaimer">
+              * Not: BMI değeri genel bilgilendirme amaçlıdır; kas kütlesi yüksek sporcularda kesin değerlendirme olarak alınmamalıdır.
+            </p>
+          </div>
+        </div>
+
+        <!-- ==================== ADIM 3: FİTNESS HEDEFİ ==================== -->
+        <div class="step-pane" id="step-pane-3">
+          <h2 class="step-title">Ana Hedefiniz Nedir?</h2>
+          <p class="step-subtitle">Antrenman programınızın set, tekrar ve dinlenme süreleri bu seçime göre şekillenecektir.</p>
+
+          <div class="selection-grid two-cols">
+            <div class="selection-card selected" data-goal="kas-kazanimi">
+              <div class="selection-card-icon">💪</div>
+              <h4 class="selection-card-title">Kas Kütlesi Kazanmak</h4>
+              <p class="selection-card-desc">Hipertrofi odaklı hacim, 8-12 tekrar aralığı ve kas lifi büyümesi.</p>
+            </div>
+
+            <div class="selection-card" data-goal="kilo-verme">
+              <div class="selection-card-icon">🔥</div>
+              <h4 class="selection-card-title">Kilo Vermek</h4>
+              <p class="selection-card-desc">Yüksek enerji harcaması, bileşik direnç hareketleri ve kardiyo dengesi.</p>
+            </div>
+
+            <div class="selection-card" data-goal="guc">
+              <div class="selection-card-icon">⚡</div>
+              <h4 class="selection-card-title">Güçlenmek (Maksimum Güç)</h4>
+              <p class="selection-card-desc">Düşük tekrar (4-6), yüksek dinlenme aralıkları ve temel bileşik kaldırışlar.</p>
+            </div>
+
+            <div class="selection-card" data-goal="formda-kalma">
+              <div class="selection-card-icon">🌱</div>
+              <h4 class="selection-card-title">Formda Kalmak</h4>
+              <p class="selection-card-desc">Sağlıklı bir yaşam tarzı, dengeli kas uyarımı ve eklem sağlığı.</p>
+            </div>
+
+            <div class="selection-card" data-goal="kondisyon">
+              <div class="selection-card-icon">🏃</div>
+              <h4 class="selection-card-title">Genel Kondisyon</h4>
+              <p class="selection-card-desc">Kardiyovasküler kapasite, dayanıklılık ve patlayıcı güç gelişimi.</p>
+            </div>
+
+            <div class="selection-card" data-goal="yag-yakimi">
+              <div class="selection-card-icon">⚖️</div>
+              <h4 class="selection-card-title">Yağ Oranını Azaltmak</h4>
+              <p class="selection-card-desc">Metabolik hızlandırıcı süpersetler ve kalori yakım blokları.</p>
+            </div>
+
+            <div class="selection-card" data-goal="kas-koruma">
+              <div class="selection-card-icon">🛡️</div>
+              <h4 class="selection-card-title">Kas Kütlesini Korumak</h4>
+              <p class="selection-card-desc">Mevcut kas dokusunu kaybetmeden tonus ve stabiliteyi muhafaza etme.</p>
+            </div>
+          </div>
+
+          <!-- SPOR BRANŞI SEÇİMİ (Madde: Birden fazla spor branşı seçilebilsin) -->
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:36px; margin-bottom:4px; flex-wrap:wrap; gap:8px;">
+            <h3 class="step-title" style="font-size:20px; margin:0;">Hangi Spor Dalları İçin Hazırlanıyorsunuz?</h3>
+            <span class="badge-multi-select" style="font-size:11px; padding:3px 8px; border-radius:12px; background:rgba(16,185,129,0.15); color:var(--accent-primary); border:1px solid rgba(16,185,129,0.3); font-weight:700;">✓ Birden Fazla Seçilebilir</span>
+          </div>
+          <p class="step-subtitle" style="margin-bottom:16px;">İstediğiniz tüm branşları seçebilirsiniz (Örn: <strong>Fitness + Boks</strong> veya <strong>Basketbol + Koşu</strong>). Seçilen branşların gereksinimlerine göre özel kuvvet ve kondisyon hareketleri programa dahil edilir.</p>
+
+          <div class="sports-picker-grid">
+            <div class="sport-select-card selected" data-sport="fitness">
+              <div class="sport-icon">🏋️</div>
+              <div class="sport-card-info">
+                <h4>Fitness & Bodybuilding</h4>
+                <span>Hipertrofi & Kas Simetrisi</span>
+                <p>Klasik ağırlık antrenmanları ve estetik odaklı kas kütlesi.</p>
+              </div>
+            </div>
+
+            <div class="sport-select-card" data-sport="boks">
+              <div class="sport-icon">🥊</div>
+              <div class="sport-card-info">
+                <h4>Boks & Dövüş Sporları</h4>
+                <span>Patlayıcı Güç & Rotasyon</span>
+                <p>Yumruk gücü, omuz laktat dayanıklılığı ve toraks rotasyonu.</p>
+              </div>
+            </div>
+
+            <div class="sport-select-card" data-sport="futbol">
+              <div class="sport-icon">⚽</div>
+              <div class="sport-card-info">
+                <h4>Futbol & Saha Sporları</h4>
+                <span>Sprint & Hamstring Gücü</span>
+                <p>Ani yön değiştirme, bacak patlayıcılığı ve maç dayanıklılığı.</p>
+              </div>
+            </div>
+
+            <div class="sport-select-card" data-sport="basketbol">
+              <div class="sport-icon">🏀</div>
+              <div class="sport-card-info">
+                <h4>Basketbol & Sıçrama</h4>
+                <span>Dikey Zıplama & Pliometrik</span>
+                <p>Dikey sıçrama yüksekliği, üçlü ekstansiyon ve omuz itişi.</p>
+              </div>
+            </div>
+
+            <div class="sport-select-card" data-sport="kosu">
+              <div class="sport-icon">🏃</div>
+              <div class="sport-card-info">
+                <h4>Koşu & Atletizm</h4>
+                <span>VO2 Max & Arka Zincir</span>
+                <p>Eklem dayanıklılığı, gluteus medius ve tempo koşusu.</p>
+              </div>
+            </div>
+
+            <div class="sport-select-card" data-sport="kalisteniks">
+              <div class="sport-icon">🤸</div>
+              <div class="sport-card-info">
+                <h4>Kalisteniks / Street Workout</h4>
+                <span>Göreceli Vücut Kuvveti</span>
+                <p>Barfiks, dips, statik tutuşlar ve çelik gibi core bölgesi.</p>
+              </div>
+            </div>
+
+            <div class="sport-select-card" data-sport="yuzme">
+              <div class="sport-icon">🏊</div>
+              <div class="sport-card-info">
+                <h4>Yüzme & Su Sporları</h4>
+                <span>Kanat Çekişi & Omuz Sağlığı</span>
+                <p>Geniş sırt kanatları, omuz rotatör kılıfı ve hidrodinamik core.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== ADIM 4: ANTRENMAN SEVİYESİ ==================== -->
+        <div class="step-pane" id="step-pane-4">
+          <h2 class="step-title">Antrenman Seviyeniz & Zorluk Derecesi</h2>
+          <p class="step-subtitle">Spor geçmişinize ve hedeflediğiniz antrenman yoğunluğuna göre hacim optimize edilir.</p>
+
+          <label class="form-label" style="margin-bottom:10px;">Antrenman Tecrübeniz:</label>
+          <div class="selection-grid three-cols" style="margin-bottom:28px;">
+            <div class="selection-card" data-level="baslangic">
+              <div class="selection-card-icon">🌱</div>
+              <h4 class="selection-card-title">Başlangıç</h4>
+              <p class="selection-card-desc">Daha az egzersiz, kontrollü hacim ve form öğrenimi odaklı temel hareketler.</p>
+            </div>
+
+            <div class="selection-card selected" data-level="orta">
+              <div class="selection-card-icon">🏆</div>
+              <h4 class="selection-card-title">Orta</h4>
+              <p class="selection-card-desc">Dengeli hacim, artan egzersiz çeşitliliği ve düzenli progressive overload.</p>
+            </div>
+
+            <div class="selection-card" data-level="ileri">
+              <div class="selection-card-icon">⚡</div>
+              <h4 class="selection-card-title">İleri</h4>
+              <p class="selection-card-desc">Yüksek antrenman hacmi, gelişmiş split sistemleri ve yoğun izolasyon.</p>
+            </div>
+          </div>
+
+          <!-- ANTRENMAN ZORLUK DERECESİ (RPE) -->
+          <label class="form-label" style="margin-bottom:10px;">Hedeflenen Antrenman Zorluk Derecesi (RPE / Yoğunluk):</label>
+          <div class="intensity-picker-grid">
+            <div class="intensity-card" data-intensity="light">
+              <h4>🟢 Hafif / Rejenerasyon (RPE 6 - 7)</h4>
+              <p>Tükenişten 3-4 tekrar önce bırakılır. Eklemleri korur, aktif toparlanma ve teknik kusursuzluk sağlar.</p>
+            </div>
+            <div class="intensity-card selected" data-intensity="standard">
+              <h4>🟡 Dengeli / Standart (RPE 8)</h4>
+              <p>Klasik hipertrofi altın standardı. Tükenişten 1-2 tekrar önce durularak maksimum kas uyarımı alınır.</p>
+            </div>
+            <div class="intensity-card" data-intensity="high">
+              <h4>🔴 Maksimum Yoğunluk (RPE 9 - 10 / Tükeniş)</h4>
+              <p>Sınırları zorlayan ağır setler, drop-setler ve dinlendirilmeyen yüksek metabolik stres.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== ADIM 5: ANTRENMAN ORTAMI ==================== -->
+        <div class="step-pane" id="step-pane-5">
+          <h2 class="step-title">Nerede Antrenman Yapacaksınız?</h2>
+          <p class="step-subtitle">Egzersiz havuzumuz ortamınıza ve çalışma alanınıza göre filtrelenecektir.</p>
+
+          <div class="selection-grid three-cols">
+            <div class="selection-card selected" data-env="gym">
+              <div class="selection-card-icon">🏢</div>
+              <h4 class="selection-card-title">Spor Salonu</h4>
+              <p class="selection-card-desc">Halterler, dambıllar, makineler ve makaralı istasyonlar mevcuttur.</p>
+            </div>
+
+            <div class="selection-card" data-env="home">
+              <div class="selection-card-icon">🏠</div>
+              <h4 class="selection-card-title">Ev</h4>
+              <p class="selection-card-desc">Evinizde bulunan dambıl, direnç bandı veya vücut ağırlığı egzersizleri.</p>
+            </div>
+
+            <div class="selection-card" data-env="outdoor">
+              <div class="selection-card-icon">🌳</div>
+              <h4 class="selection-card-title">Açık Hava</h4>
+              <p class="selection-card-desc">Kalisteniks barları, koşu, sprint ve vücut ağırlığıyla serbest çalışma.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== ADIM 6: EKİPMANLAR ==================== -->
+        <div class="step-pane" id="step-pane-6">
+          <h2 class="step-title">Mevcut Ekipmanlarınız</h2>
+          <p class="step-subtitle">Sahip olduğunuz tüm ekipmanları işaretleyin (Ev veya açık hava seçimlerinde kritik önem taşır).</p>
+
+          <div id="home-equip-notice" style="display:none; font-size:13px; color:var(--accent-primary); margin-bottom:14px;">
+            ℹ️ Ev ortamı seçtiniz. Lütfen evinizdeki ekipmanları işaretleyin veya "Ekipmansız"ı seçin.
+          </div>
+
+          <div class="equipment-grid">
+            <div class="equip-item" data-equip="Ekipmansız">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Ekipmansız (Sadece Vücut Ağırlığı)</span>
+            </div>
+
+            <div class="equip-item selected" data-equip="Dambıl">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Dambıl (Sabit Dambıllar)</span>
+            </div>
+
+            <div class="equip-item" data-equip="Ayarlanabilir Dambıl">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Ayarlanabilir Dambıl</span>
+            </div>
+
+            <div class="equip-item selected" data-equip="Barbell">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Barbell (Halter Barı & Plakalar)</span>
+            </div>
+
+            <div class="equip-item" data-equip="EZ Bar">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">EZ Bar (Z Bar)</span>
+            </div>
+
+            <div class="equip-item selected" data-equip="Bench">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Düz Ağırlık Sehpası (Flat Bench)</span>
+            </div>
+
+            <div class="equip-item" data-equip="Ayarlanabilir Eğimli Sehpa">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Ayarlanabilir Eğimli Sehpa (Incline Bench)</span>
+            </div>
+
+            <div class="equip-item" data-equip="Direnç bandı">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Direnç Bandı (Uzun Lastik)</span>
+            </div>
+
+            <div class="equip-item" data-equip="Mini Loop Band">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Mini Loop Band (Kalça / Bacak Bandı)</span>
+            </div>
+
+            <div class="equip-item" data-equip="Barfiks demiri">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Barfiks Demiri (Pull-up Bar)</span>
+            </div>
+
+            <div class="equip-item" data-equip="Paralel bar">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Paralel Bar / Dips İstasyonu</span>
+            </div>
+
+            <div class="equip-item" data-equip="Kettlebell">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Kettlebell (Girya)</span>
+            </div>
+
+            <div class="equip-item" data-equip="Karın Tekerleği">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Karın Tekerleği (Ab Roller)</span>
+            </div>
+
+            <div class="equip-item" data-equip="Atlama İpi">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Atlama İpi (Jump Rope)</span>
+            </div>
+
+            <div class="equip-item" data-equip="TRX / Süspansiyon Kayışı">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">TRX / Askı & Süspansiyon Kayışı</span>
+            </div>
+
+            <div class="equip-item" data-equip="Ağırlık Yeleği">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Ağırlık Yeleği (Weighted Vest)</span>
+            </div>
+
+            <div class="equip-item" data-equip="Egzersiz Matı">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Egzersiz / Yoga Matı</span>
+            </div>
+
+            <div class="equip-item" data-equip="Pilates Topu">
+              <div class="equip-checkbox"></div>
+              <span class="equip-label">Pilates / Sağlık Topu (Swiss Ball)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== ADIM 7: HAFTALIK MÜSAİTLİK ==================== -->
+        <div class="step-pane" id="step-pane-7">
+          <h2 class="step-title">Haftalık Müsaitlik & Günler</h2>
+          <p class="step-subtitle">Haftada kaç gün antrenman yapmak istiyorsunuz ve tam olarak hangi günler müsaitsiniz?</p>
+
+          <label class="form-label" style="margin-bottom:10px;">Haftada Kaç Gün Antrenman Yapmak İstiyorsunuz?</label>
+          <div class="days-count-picker">
+            <div class="count-pill" data-days-count="2">2 Gün</div>
+            <div class="count-pill" data-days-count="3">3 Gün</div>
+            <div class="count-pill selected" data-days-count="4">4 Gün</div>
+            <div class="count-pill" data-days-count="5">5 Gün</div>
+            <div class="count-pill" data-days-count="6">6 Gün</div>
+          </div>
+
+          <label class="form-label" style="margin-bottom:10px;">Hangi Günler Müsaitsiniz? (Tam olarak seçtiğiniz gün sayısı kadar işaretleyin):</label>
+          <div class="weekday-selector-grid">
+            <div class="weekday-btn selected" data-weekday="Pazartesi">
+              <span class="weekday-abbr">PZT</span>
+              <span class="weekday-status">Antrenman</span>
+            </div>
+            <div class="weekday-btn selected" data-weekday="Salı">
+              <span class="weekday-abbr">SAL</span>
+              <span class="weekday-status">Antrenman</span>
+            </div>
+            <div class="weekday-btn" data-weekday="Çarşamba">
+              <span class="weekday-abbr">ÇAR</span>
+              <span class="weekday-status">Dinlenme</span>
+            </div>
+            <div class="weekday-btn selected" data-weekday="Perşembe">
+              <span class="weekday-abbr">PER</span>
+              <span class="weekday-status">Antrenman</span>
+            </div>
+            <div class="weekday-btn selected" data-weekday="Cuma">
+              <span class="weekday-abbr">CUM</span>
+              <span class="weekday-status">Antrenman</span>
+            </div>
+            <div class="weekday-btn" data-weekday="Cumartesi">
+              <span class="weekday-abbr">CTS</span>
+              <span class="weekday-status">Dinlenme</span>
+            </div>
+            <div class="weekday-btn" data-weekday="Pazar">
+              <span class="weekday-abbr">PAZ</span>
+              <span class="weekday-status">Dinlenme</span>
+            </div>
+          </div>
+
+          <div id="day-match-tip" class="day-validation-tip match">
+            ✓ Harika! 4 günlük antrenman için tam 4 gün seçildi.
+          </div>
+        </div>
+
+        <!-- ==================== ADIM 8: ANTRENMAN SÜRESİ ==================== -->
+        <div class="step-pane" id="step-pane-8">
+          <h2 class="step-title">Antrenman Süresi</h2>
+          <p class="step-subtitle">Her bir seans için ayırabileceğiniz ortalama süre günlük egzersiz adedini belirler.</p>
+
+          <div class="selection-grid two-cols">
+            <div class="selection-card" data-duration="30">
+              <div class="selection-card-icon">⚡</div>
+              <h4 class="selection-card-title">30 Dakika</h4>
+              <p class="selection-card-desc">Hızlı ve yoğun: 3-4 temel egzersiz, kısa dinlenme aralıkları.</p>
+            </div>
+
+            <div class="selection-card" data-duration="45">
+              <div class="selection-card-icon">⏱️</div>
+              <h4 class="selection-card-title">45 Dakika</h4>
+              <p class="selection-card-desc">Dengeli ve etkili: 4-5 egzersiz, ideal kas uyarımı.</p>
+            </div>
+
+            <div class="selection-card selected" data-duration="60">
+              <div class="selection-card-icon">🎯</div>
+              <h4 class="selection-card-title">60 Dakika (Önerilen)</h4>
+              <p class="selection-card-desc">Klasik altın standart: 5-7 egzersiz, tam ısınma ve set dinlenmesi.</p>
+            </div>
+
+            <div class="selection-card" data-duration="75">
+              <div class="selection-card-icon">🔥</div>
+              <h4 class="selection-card-title">75 Dakika</h4>
+              <p class="selection-card-desc">Genişletilmiş hacim: 6-8 egzersiz + detaylı aksesuar hareketleri.</p>
+            </div>
+
+            <div class="selection-card" data-duration="90">
+              <div class="selection-card-icon">🏆</div>
+              <h4 class="selection-card-title">90 Dakika</h4>
+              <p class="selection-card-desc">Maksimum hacim: İleri seviye sporcular için yüksek set ve dinlenme süresi.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== ADIM 9: KAS GRUBU TERCİHLERİ ==================== -->
+        <div class="step-pane" id="step-pane-9">
+          <h2 class="step-title">Öncelikli Kas Grubu Tercihleri</h2>
+          <p class="step-subtitle">Özellikle ekstra hacim vermek istediğiniz kasları seçebilirsiniz (İsteğe bağlıdır).</p>
+
+          <div class="muscle-chips-grid">
+            <div class="muscle-chip selected" data-muscle="Göğüs">Göğüs</div>
+            <div class="muscle-chip selected" data-muscle="Sırt">Sırt</div>
+            <div class="muscle-chip" data-muscle="Omuz">Omuz</div>
+            <div class="muscle-chip" data-muscle="Biceps">Biceps (Ön Kol / Pazu)</div>
+            <div class="muscle-chip" data-muscle="Triceps">Triceps (Arka Kol)</div>
+            <div class="muscle-chip" data-muscle="Karın">Karın / Core</div>
+            <div class="muscle-chip" data-muscle="Quadriceps">Quadriceps (Ön Bacak)</div>
+            <div class="muscle-chip" data-muscle="Hamstring">Hamstring (Arka Bacak)</div>
+            <div class="muscle-chip" data-muscle="Kalça">Kalça (Glutes)</div>
+            <div class="muscle-chip" data-muscle="Baldır">Baldır (Calves)</div>
+            <div class="muscle-chip" data-muscle="yok">Özel Bir Bölgem Yok (Dengeli Dağıt)</div>
+          </div>
+
+          <!-- PSİKOLOJİK DURUM ANALİZİ (Bugün Nasıl Hissediyorsunuz?) -->
+          <h3 class="step-title" style="font-size:20px; margin-top:32px; margin-bottom:4px;">Bugün Nasıl Hissediyorsunuz? (Zihinsel Durum & Enerji)</h3>
+          <p class="step-subtitle" style="margin-bottom:14px;">Günlük ruh halinize ve enerji seviyenize göre antrenman temposu ve motivasyonel mesajlar uyarlanır.</p>
+
+          <div class="mindset-chip-grid">
+            <div class="mindset-chip-btn" data-mindset="godmode">🦁 God Mode (Zirve Enerji & PR)</div>
+            <div class="mindset-chip-btn selected" data-mindset="focused">🧘 Dengeli & Odaklı</div>
+            <div class="mindset-chip-btn" data-mindset="tired">😴 Yorgun / Az Uyku</div>
+            <div class="mindset-chip-btn" data-mindset="stressed">🤯 Stresli / Terapi Günü</div>
+            <div class="mindset-chip-btn" data-mindset="sore">🤕 Ağrılı / Hamlamış</div>
+          </div>
+
+          <!-- Hızlı Zihinsel Durum Testi (Test Modu) -->
+          <div class="mindset-quiz-card" style="margin-top:16px; padding:16px; background:var(--bg-input); border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:6px;">
+              <span style="font-size:13px; font-weight:800; color:#fff;">🧠 Hızlı Zihinsel Durum Testi (3 Soru)</span>
+              <span style="font-size:11px; color:var(--accent-primary); font-weight:600;">Seçtikçe ruh hali otomatik güncellenir</span>
+            </div>
+            <div class="mindset-quiz-grid">
+              <div class="quiz-item">
+                <label class="form-label" style="font-size:12px; margin-bottom:6px;">1. Gece Uyku Kaliteniz:</label>
+                <div class="quiz-btn-group" data-quiz-dim="sleep">
+                  <button type="button" class="quiz-pill-btn" data-val="bad">😴 Kötü (&lt;6s)</button>
+                  <button type="button" class="quiz-pill-btn selected" data-val="ok">🛌 Normal (7s)</button>
+                  <button type="button" class="quiz-pill-btn" data-val="great">⚡ Zirve (8s+)</button>
+                </div>
+              </div>
+              <div class="quiz-item">
+                <label class="form-label" style="font-size:12px; margin-bottom:6px;">2. Günlük Zihinsel Stres:</label>
+                <div class="quiz-btn-group" data-quiz-dim="stress">
+                  <button type="button" class="quiz-pill-btn" data-val="low">🌱 Düşük / Sakin</button>
+                  <button type="button" class="quiz-pill-btn selected" data-val="mid">⚖️ Orta</button>
+                  <button type="button" class="quiz-pill-btn" data-val="high">🤯 Yoğun / Stresli</button>
+                </div>
+              </div>
+              <div class="quiz-item">
+                <label class="form-label" style="font-size:12px; margin-bottom:6px;">3. Bugünkü Antrenman Hırsı:</label>
+                <div class="quiz-btn-group" data-quiz-dim="drive">
+                  <button type="button" class="quiz-pill-btn" data-val="low">Düşük</button>
+                  <button type="button" class="quiz-pill-btn selected" data-val="mid">Dengeli</button>
+                  <button type="button" class="quiz-pill-btn" data-val="high">Maksimum!</button>
+                </div>
+              </div>
+            </div>
+            <div class="quiz-insight-box" id="wizard-quiz-insight" style="margin-top:12px; font-size:12px; color:var(--text-secondary); background:rgba(255,255,255,0.03); padding:8px 12px; border-radius:var(--radius-sm); border-left:3px solid var(--accent-primary);">
+              💡 Test Değerlendirmesi: <strong>Dengeli & Odaklı</strong> modu seçildi. Bugün plana tam sadakat ile maksimum verim alabilirsiniz.
+            </div>
+          </div>
+
+          <h3 class="step-title" style="font-size:20px; margin-top:28px;">Kardiyo Tercihi</h3>
+          <p class="step-subtitle">Haftalık programınıza kardiyo blokları eklemek ister misiniz?</p>
+
+          <div class="selection-grid three-cols">
+            <div class="selection-card" data-cardio="evet">
+              <div class="selection-card-icon">🏃</div>
+              <h4 class="selection-card-title">Evet, Ekleyin</h4>
+              <p class="selection-card-desc">Her antrenman sonuna 15-20 dk yağ yakım kardiyosu.</p>
+            </div>
+
+            <div class="selection-card selected" data-cardio="hafif">
+              <div class="selection-card-icon">🚶</div>
+              <h4 class="selection-card-title">Hafif Kardiyo</h4>
+              <p class="selection-card-desc">Haftada 1-2 seans dinlendirici düşük tempo yürüyüş/ip.</p>
+            </div>
+
+            <div class="selection-card" data-cardio="hayir">
+              <div class="selection-card-icon">⛔</div>
+              <h4 class="selection-card-title">Hayır, İstemiyorum</h4>
+              <p class="selection-card-desc">Sadece saf direnç ve ağırlık antrenmanı odaklı.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== ADIM 10: PROGRAM ÖZETİ & ONAY ==================== -->
+        <div class="step-pane" id="step-pane-10">
+          <h2 class="step-title">Program Özeti & Doğrulama</h2>
+          <p class="step-subtitle">Girdiğiniz verileri kontrol edin. Onayladığınızda programınız yapay zeka mantığıyla derlenecektir.</p>
+
+          <div class="summary-review-list">
+            <div class="summary-review-row">
+              <span class="summary-label">Sporcu Adı</span>
+              <span class="summary-val" id="sum-rev-name">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Yaş & Cinsiyet</span>
+              <span class="summary-val" id="sum-rev-age">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Boy / Kilo</span>
+              <span class="summary-val" id="sum-rev-height-weight">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Ana Hedef</span>
+              <span class="summary-val" id="sum-rev-goal">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Spor Branşı</span>
+              <span class="summary-val" id="sum-rev-sport">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Antrenman Seviyesi</span>
+              <span class="summary-val" id="sum-rev-level">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Zorluk Derecesi (RPE)</span>
+              <span class="summary-val" id="sum-rev-intensity">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Antrenman Ortamı</span>
+              <span class="summary-val" id="sum-rev-env">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Ekipmanlar</span>
+              <span class="summary-val" id="sum-rev-equip">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Haftalık Müsaitlik</span>
+              <span class="summary-val" id="sum-rev-days">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Hedef Seans Süresi</span>
+              <span class="summary-val" id="sum-rev-duration">-</span>
+            </div>
+            <div class="summary-review-row">
+              <span class="summary-label">Kardiyo Tercihi</span>
+              <span class="summary-val" id="sum-rev-cardio">-</span>
+            </div>
+          </div>
+
+          <div style="text-align:center; margin-top:20px;">
+            <button type="button" class="btn btn-primary btn-lg" id="btn-create-final-plan" style="width:100%; max-width:400px;">
+              🚀 Programımı Oluştur
+            </button>
+          </div>
+        </div>
+
+        <!-- Sihirbaz Alt Gezinme Butonları (Geri / Devam Et) -->
+        <div class="wizard-footer">
+          <button type="button" class="btn btn-outline" id="btn-wizard-prev">
+            ← Geri
+          </button>
+          <button type="button" class="btn btn-primary" id="btn-wizard-next">
+            Devam Et →
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         BÖLÜM 3: PROGRAM HAZIRLANIYOR YÜKLEME EKRANI (Madde 29)
+         ======================================================================= -->
+    <section id="loading-view" class="view-section">
+      <div class="loading-box">
+        <div class="spinner-wrap">
+          <div class="spinner-ring"></div>
+        </div>
+        <h3 class="loading-title">Senin İçin En Uygun Program Hazırlanıyor...</h3>
+        <p class="loading-step-text" id="loading-step-text">Fiziksel veriler ve hedefler analiz ediliyor...</p>
+        <div class="loading-progress-bar">
+          <div class="loading-progress-fill" id="loading-progress-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         BÖLÜM 4: SONUÇ EKRANI (Madde 20 - İşte Senin FitForge Planın!)
+         ======================================================================= -->
+    <section id="results-view" class="view-section">
+      <!-- Sonuç Başlığı & Profil Şeridi -->
+      <div class="results-header-card">
+        <div class="results-title-row">
+          <div class="results-title-group">
+            <h2>İşte Senin FitForge Planın! 🎯</h2>
+            <p>Seçtiğin kriterlere ve spor bilimi prensiplerine göre oluşturulan haftalık antrenman takvimin.</p>
+          </div>
+          <div class="results-actions-top">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-print-plan">
+              🖨️ Programı Yazdır
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" id="btn-reroll-plan">
+              🔄 Yeniden Oluştur (Alternatif)
+            </button>
+            <button type="button" class="btn btn-outline btn-sm" id="btn-edit-plan">
+              ✏️ Bilgilerimi Düzenle
+            </button>
+          </div>
+        </div>
+
+        <!-- Kullanıcı Özet Şeridi -->
+        <div class="user-profile-strip">
+          <div class="user-profile-item">
+            <span class="user-profile-label">Sporcu</span>
+            <span class="user-profile-val" id="res-user-name">-</span>
+          </div>
+          <div class="user-profile-item">
+            <span class="user-profile-label">Cinsiyet / Yaş</span>
+            <span class="user-profile-val"><span id="res-user-gender">-</span> · <span id="res-user-age">-</span></span>
+          </div>
+          <div class="user-profile-item">
+            <span class="user-profile-label">Boy / Kilo</span>
+            <span class="user-profile-val"><span id="res-user-height">-</span> / <span id="res-user-weight">-</span></span>
+          </div>
+          <div class="user-profile-item">
+            <span class="user-profile-label">BMI Endeksi</span>
+            <span class="user-profile-val" id="res-user-bmi">-</span>
+          </div>
+          <div class="user-profile-item">
+            <span class="user-profile-label">Haftalık Gün</span>
+            <span class="user-profile-val" id="res-user-days">-</span>
+          </div>
+          <div class="user-profile-item">
+            <span class="user-profile-label">Ortam</span>
+            <span class="user-profile-val" id="res-user-env">-</span>
+          </div>
+          <div class="user-profile-item">
+            <span class="user-profile-label">Seans Süresi</span>
+            <span class="user-profile-val" id="res-user-duration">-</span>
+          </div>
+          <div class="user-profile-item">
+            <span class="user-profile-label">Branş</span>
+            <span class="user-profile-val" id="res-user-sport">Fitness</span>
+          </div>
+          <div class="user-profile-item">
+            <span class="user-profile-label">Zorluk (RPE)</span>
+            <span class="user-profile-val" id="res-user-intensity">Standart (RPE 8)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANTRENMAN ZORLUK DERECESİ DİNAMİK AYARLAMA ÇUBUĞU -->
+      <div class="results-intensity-bar">
+        <div class="intensity-bar-left">
+          <span class="intensity-bar-icon">⚡</span>
+          <div>
+            <div class="intensity-bar-label">Antrenman Zorluk Derecesi (RPE) Ayarı:</div>
+            <div class="intensity-bar-hint" id="res-intensity-hint">Tek tıkla zorluk değiştirin; program setleri, tekrarları ve ağırlık önerileri anında güncellenir.</div>
+          </div>
+        </div>
+        <div class="intensity-pills" id="results-intensity-pills">
+          <button type="button" class="intensity-pill-btn" data-res-intensity="light">
+            🟢 Hafif (RPE 6-7)
+          </button>
+          <button type="button" class="intensity-pill-btn active" data-res-intensity="standard">
+            🟡 Standart (RPE 8)
+          </button>
+          <button type="button" class="intensity-pill-btn" data-res-intensity="high">
+            🔴 Canavar Modu (RPE 9-10)
+          </button>
+        </div>
+      </div>
+
+      <!-- SONUÇ EKRANI SEKMELİ GEZİNTİ MENÜSÜ -->
+      <nav class="results-tabs-nav" id="results-nav-tabs">
+        <button type="button" class="tab-btn active" data-tab="tab-workout">
+          📅 Antrenman Takvimi
+        </button>
+        <button type="button" class="tab-btn" data-tab="tab-nutrition">
+          🥗 Kalori & Yemek Planı
+        </button>
+        <button type="button" class="tab-btn" data-tab="tab-progress">
+          📈 Ay Ay Gelişim & Fotoğraflar
+        </button>
+        <button type="button" class="tab-btn" data-tab="tab-ranks">
+          🏆 Kas Grupları Rank (LoL)
+        </button>
+        <button type="button" class="tab-btn" data-tab="tab-mindset">
+          🧠 Zihinsel Durum Analizi
+        </button>
+        <button type="button" class="tab-btn" data-tab="tab-coach">
+          🤖 FitAI Antrenör Danışmanı
+        </button>
+      </nav>
+
+      <!-- SEKME 1: ANTRENMAN TAKVİMİ -->
+      <div class="tab-panel active" id="tab-workout">
+        <!-- Haftalık Takvim Başlığı -->
+        <div class="calendar-section-title">
+          <span>📅 Haftalık Egzersiz ve Dinlenme Takvimi</span>
+        </div>
+
+        <!-- Günlük Kartlar Konteyneri -->
+        <div class="calendar-days-container" id="calendar-days-container">
+          <!-- JavaScript tarafından dinamik oluşturulur -->
+        </div>
+
+        <!-- HAFTALIK ÖZET İSTATİSTİKLERİ (Madde 22) -->
+        <div class="weekly-summary-section">
+          <h3 class="weekly-summary-title">📊 Haftalık Program Özeti</h3>
+          <div class="summary-stats-grid">
+            <div class="summary-stat-box">
+              <div class="stat-big-num" id="sum-workout-days">4 Gün</div>
+              <div class="stat-desc-lbl">Antrenman Günü</div>
+            </div>
+            <div class="summary-stat-box">
+              <div class="stat-big-num" id="sum-rest-days">3 Gün</div>
+              <div class="stat-desc-lbl">Dinlenme Günü</div>
+            </div>
+            <div class="summary-stat-box">
+              <div class="stat-big-num" id="sum-total-exercises">24</div>
+              <div class="stat-desc-lbl">Toplam Egzersiz</div>
+            </div>
+            <div class="summary-stat-box">
+              <div class="stat-big-num" id="sum-est-duration">60 dk</div>
+              <div class="stat-desc-lbl">Ortalama Süre</div>
+            </div>
+            <div class="summary-stat-box">
+              <div class="stat-big-num" id="sum-cardio-days">2 Gün</div>
+              <div class="stat-desc-lbl">Kardiyo Seansı</div>
+            </div>
+            <div class="summary-stat-box">
+              <div class="stat-big-num" id="sum-goal-name" style="font-size:16px; margin-top:6px;">Kas Kazanımı</div>
+              <div class="stat-desc-lbl">Ana Hedef</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GÜVENLİK VE SAĞLIK UYARISI (Madde 23) -->
+        <div class="safety-disclaimer-box">
+          <div class="safety-icon">⚠️</div>
+          <div class="safety-disclaimer-text">
+            <h5>Önemli Sağlık ve Güvenlik Bilgilendirmesi</h5>
+            <p>
+              Bu uygulama genel fitness planlaması ve eğitim amacıyla hazırlanmıştır. Tıbbi tavsiye veya profesyonel sağlık hizmetinin yerine geçmez. Herhangi bir sağlık probleminiz, sakatlığınız, kardiyovasküler rahatsızlığınız veya özel durumunuz varsa egzersiz programına başlamadan önce mutlaka yetkili bir hekime ve uzman fitness antrenörüne danışın.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEKME 2: GÜNLÜK KALORİ & YEMEK PROGRAMI -->
+      <div class="tab-panel" id="tab-nutrition">
+        <div class="nutrition-hero-card">
+          <div>
+            <span class="hero-badge">🥗 BİLİMSEL BESLENME MOTORU</span>
+            <h3 style="font-size:22px; font-weight:800; color:#fff; margin:8px 0 4px;">Kişiselleştirilmiş Kalori & Makro Hedefleriniz</h3>
+            <p style="font-size:14px; color:var(--text-secondary);" id="nut-goal-label">Mifflin-St Jeor bazal metabolizma ve aktivite katsayısı ile hesaplandı.</p>
+          </div>
+
+          <!-- Kalori Metrikleri Özeti -->
+          <div class="nutrition-calories-summary">
+            <div class="calorie-metric-card">
+              <div class="cal-number" id="nut-bmr-val">1750</div>
+              <div class="cal-label">BMR (Bazal Metabolizma)</div>
+            </div>
+            <div class="calorie-metric-card">
+              <div class="cal-number" id="nut-tdee-val">2450</div>
+              <div class="cal-label">TDEE (Günlük Harcama)</div>
+            </div>
+            <div class="calorie-metric-card highlight">
+              <div class="cal-number" id="nut-target-cal">2800</div>
+              <div class="cal-label">Hedef Günlük Kalori (kcal)</div>
+            </div>
+            <div class="calorie-metric-card">
+              <div class="cal-number" id="nut-water-val">3.2 L</div>
+              <div class="cal-label">Günlük Su İhtiyacı</div>
+            </div>
+          </div>
+
+          <!-- Makro Besin Dağılımı -->
+          <div class="macros-grid">
+            <div class="macro-box">
+              <div class="macro-box-header">
+                <span class="macro-tag">🥩 Protein</span>
+                <span class="macro-grams" id="nut-protein-grams">165g</span>
+              </div>
+              <div class="macro-progress-bar">
+                <div class="macro-progress-fill fill-protein" id="nut-protein-fill" style="width: 30%;"></div>
+              </div>
+              <div class="macro-desc" id="nut-protein-desc">660 kcal (%28) · Kas onarımı ve anabolizma</div>
+            </div>
+
+            <div class="macro-box">
+              <div class="macro-box-header">
+                <span class="macro-tag">🍚 Karbonhidrat</span>
+                <span class="macro-grams" id="nut-carb-grams">320g</span>
+              </div>
+              <div class="macro-progress-bar">
+                <div class="macro-progress-fill fill-carb" id="nut-carb-fill" style="width: 50%;"></div>
+              </div>
+              <div class="macro-desc" id="nut-carb-desc">1280 kcal (%52) · Antrenman glikojen enerjisi</div>
+            </div>
+
+            <div class="macro-box">
+              <div class="macro-box-header">
+                <span class="macro-tag">🥑 Sağlıklı Yağlar</span>
+                <span class="macro-grams" id="nut-fat-grams">65g</span>
+              </div>
+              <div class="macro-progress-bar">
+                <div class="macro-progress-fill fill-fat" id="nut-fat-fill" style="width: 20%;"></div>
+              </div>
+              <div class="macro-desc" id="nut-fat-desc">585 kcal (%20) · Testosteron & hormon dengesi</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- İnteraktif Su Takipçisi -->
+        <div class="water-tracker-card">
+          <div>
+            <h4 style="font-size:16px; font-weight:800; color:#fff; margin-bottom:4px;">💧 Günlük Su Takipçisi</h4>
+            <p style="font-size:13px; color:var(--text-secondary);">Her bardak ~250 ml su temsil eder. İçtiğiniz bardaklara tıklayarak gününüzü takip edin!</p>
+          </div>
+          <div class="water-glasses-row" id="water-glasses-container">
+            <!-- JavaScript tarafından üretilir -->
+          </div>
+        </div>
+
+        <!-- 5 Öğünlük Detaylı Yemek Listesi -->
+        <div class="calendar-section-title">
+          <span>🍽️ Günlük 5 Öğünlük Yemek ve Beslenme Menüsü</span>
+        </div>
+        <div class="meals-timeline-grid" id="meals-timeline-container">
+          <!-- JavaScript tarafından doldurulur -->
+        </div>
+      </div>
+
+      <!-- SEKME 3: AY AY GELİŞİM TABLOSU & FOTOĞRAFLAR -->
+      <div class="tab-panel" id="tab-progress">
+        <div class="calendar-section-title">
+          <span>📈 12 Aylık Vücut & Güç Gelişim Projeksiyonu</span>
+        </div>
+
+        <div class="progress-table-wrap">
+          <table class="progress-table">
+            <thead>
+              <tr>
+                <th>Zaman Çizelgesi</th>
+                <th>Tahmini Kilo</th>
+                <th>Yağ Oranı</th>
+                <th>Kas Kütlesi</th>
+                <th>Bench 1RM</th>
+                <th>Squat 1RM</th>
+                <th>Deadlift 1RM</th>
+                <th>Gelişim Fazı</th>
+              </tr>
+            </thead>
+            <tbody id="progress-table-body">
+              <!-- JavaScript tarafından doldurulur -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Aylık Fotoğraf Günlüğü -->
+        <div class="photo-tracker-wrap">
+          <div class="photo-tracker-header">
+            <div>
+              <h4 style="font-size:18px; font-weight:800; color:#fff; margin-bottom:4px;">📸 Aylık Form & Gelişim Fotoğraf Günlüğü</h4>
+              <p style="font-size:13px; color:var(--text-secondary);">Aylık fotoğraflarınızı yükleyerek vücudunuzdaki kas ve yağ değişimini görsel olarak takip edin.</p>
+            </div>
+            <div>
+              <input type="file" id="input-progress-photo" accept="image/*" style="display:none;" />
+              <button type="button" class="btn btn-primary btn-sm" id="btn-trigger-photo-upload">
+                + Yeni Gelişim Fotoğrafı Yükle
+              </button>
+            </div>
+          </div>
+
+          <div class="photo-gallery-grid" id="photo-gallery-grid">
+            <!-- JavaScript tarafından doldurulur -->
+          </div>
+        </div>
+      </div>
+
+      <!-- SEKME 4: KAS GRUPLARI RANK SİSTEMİ (LoL Tier List) -->
+      <div class="tab-panel" id="tab-ranks">
+        <div class="lol-rank-header">
+          <div class="hero-badge">🎮 LEAGUE OF LEGENDS TARZI KAS TIER LİSTESİ</div>
+          <h3 style="font-size:22px; font-weight:800; color:#fff; margin:8px 0 4px;">Vücut Bölgelerinizin Rank & Güç Seviyeleri</h3>
+          <p style="font-size:14px; color:var(--text-secondary);">Antrenman sıklığınız, öncelikleriniz ve biyomekanik set hacminize göre kas gruplarınızın LP (League Points) ve rütbeleri:</p>
+
+          <!-- Spotlight: Main Carry ve Feedleyen Bölge -->
+          <div class="lol-spotlight-grid">
+            <div class="lol-spotlight-card carry" id="lol-carry-card">
+              <div class="lol-spotlight-icon">👑</div>
+              <div class="lol-spotlight-info">
+                <h5>🌟 MAIN CARRY BÖLGEN: <span id="lol-carry-name">Göğüs</span></h5>
+                <p id="lol-carry-desc">En yüksek LP ve gelişim potansiyeline sahip taşıyıcı kas grubun.</p>
+              </div>
+            </div>
+
+            <div class="lol-spotlight-card weak" id="lol-weak-card">
+              <div class="lol-spotlight-icon">⚠️</div>
+              <div class="lol-spotlight-info">
+                <h5>🛠️ ACİL BUFF GEREKEN BÖLGE: <span id="lol-weak-name">Baldır</span></h5>
+                <p id="lol-weak-desc">Gelişimde geride kalan ve ek hacim verilmesi gereken bölgen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lol-muscles-grid" id="lol-muscles-container">
+          <!-- JavaScript tarafından doldurulur -->
+        </div>
+      </div>
+
+      <!-- SEKME 5: ZİHİNSEL DURUM & MOTİVASYON -->
+      <div class="tab-panel" id="tab-mindset">
+        <div class="mindset-box">
+          <div class="hero-badge">🧠 SPOR PSİKOLOJİSİ & ENERJİ HAZIRLIĞI</div>
+          <h3 style="font-size:22px; font-weight:800; color:#fff; margin:8px 0 4px;">Bugün Zihnen Nasıl Hissediyorsunuz?</h3>
+          <p style="font-size:14px; color:var(--text-secondary);">Aşağıdan güncel ruh halinizi seçin; antrenman hacminiz ve antrenör tavsiyeleriniz anında uyarlansın:</p>
+
+          <div class="mindset-chip-grid">
+            <div class="mindset-chip-btn" data-res-mindset="godmode">🦁 God Mode (Zirve Enerji)</div>
+            <div class="mindset-chip-btn selected" data-res-mindset="focused">🧘 Dengeli & Odaklı</div>
+            <div class="mindset-chip-btn" data-res-mindset="tired">😴 Yorgun / Az Uyku</div>
+            <div class="mindset-chip-btn" data-res-mindset="stressed">🤯 Stresli / Terapi Günü</div>
+            <div class="mindset-chip-btn" data-res-mindset="sore">🤕 Ağrılı / Hamlamış</div>
+          </div>
+
+          <div class="mindset-advice-display" id="res-mindset-display">
+            <h5 id="res-mindset-title">🧘 Dengeli & Disiplinli</h5>
+            <p id="res-mindset-message">Harika bir zihinsel denge. Disiplin motivasyonun bittiği yerde başlar. Bugün plana sadık kalarak setlerini eksiksiz tamamla.</p>
+            <p style="margin-top:8px; font-size:12px; color:var(--accent-primary); font-weight:700;" id="res-mindset-action">Tavsiye: Standart program setlerini ve dinlenme sürelerini koru.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEKME 6: FİTAİ COACH DANIŞMANI -->
+      <div class="tab-panel" id="tab-coach">
+        <div class="ai-coach-card">
+          <div>
+            <div class="hero-badge">🤖 GEMINI 3.8 DESTEKLİ BAŞ ANTRENÖR</div>
+            <h3 style="font-size:22px; font-weight:800; color:#fff; margin:8px 0 4px;">FitAI Antrenör & Beslenme Danışmanı</h3>
+            <p style="font-size:14px; color:var(--text-secondary);">Antrenmanınız, yemekleriniz, kas ağrılarınız veya hareket formları hakkında her şeyi anında sorun:</p>
+          </div>
+
+          <!-- Hızlı Soru Çipleri -->
+          <div class="ai-chips-row">
+            <button type="button" class="ai-chip" data-ask="Antrenmandan 1 saat önce ne yemeliyim?">🍌 Antrenman Öncesi Öğün</button>
+            <button type="button" class="ai-chip" data-ask="Bench presste omuzlarım acıyor, formu nasıl düzeltirim?">🛡️ Bench Form Düzeltme</button>
+            <button type="button" class="ai-chip" data-ask="Kas gelişimini hızlandırmak için hangi takviyeler şart?">💊 Temel Takviyeler</button>
+            <button type="button" class="ai-chip" data-ask="Bugün çok yorgunum ama antrenmanı kaçırmak istemiyorum, ne yapayım?">⚡ Düşük Enerjide Taktik</button>
+          </div>
+
+          <!-- Sohbet Penceresi -->
+          <div class="ai-chat-window" id="ai-chat-window">
+            <div class="ai-msg-bubble bot">
+              👋 Merhaba sporcu! Ben FitAI Baş Antrenörün. Programın, kalori hedeflerin veya hareket formların hakkında aklına takılan her şeyi yanıtlamaya hazırım. Nasıl yardımcı olabilirim?
+            </div>
+          </div>
+
+          <!-- Giriş Alanı -->
+          <form id="ai-chat-form" class="ai-input-row">
+            <input type="text" id="ai-user-input" class="ai-input-box" placeholder="Sorunuzu buraya yazın (Örn: Kreatin ne zaman alınmalı?)..." autocomplete="off" />
+            <button type="submit" class="btn btn-primary" id="btn-send-ai">
+              Gönder
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Alt Aksiyon Çubuğu -->
+      <div class="results-bottom-actions">
+        <div class="bottom-action-left">
+          <button type="button" class="btn btn-primary" id="btn-print-plan-bottom" onclick="window.print()">
+            🖨️ Programı Yazdır / PDF İndir
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+            ↑ Sayfa Başına Dön
+          </button>
+        </div>
+        <div class="bottom-action-right">
+          <button type="button" class="btn btn-danger btn-sm" id="btn-clear-plan">
+            🗑️ Bilgilerimi Temizle
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       EGZERSİZ İNCELEME MODALI (Madde 15)
+       ========================================================================= -->
+  <div class="modal-overlay" id="exercise-modal" role="dialog" aria-modal="true" aria-labelledby="modal-ex-name">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="modal-ex-name">Bench Press</h3>
+          <p id="modal-ex-muscles">Hedef: Göğüs, Triceps, Ön Omuz</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Kapat">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Biyomekanik / Görsel / GIF Alanı -->
+        <div class="modal-media-viewport" id="modal-media-viewport">
+          <!-- Dinamik Vektör / Görsel Çizimi -->
+        </div>
+
+        <!-- Meta Bilgi Izgarası -->
+        <div class="modal-meta-grid">
+          <div class="modal-meta-cell">
+            <span>Ekipman</span>
+            <span id="modal-ex-equip">Barbell, Bench</span>
+          </div>
+          <div class="modal-meta-cell">
+            <span>Seviye</span>
+            <span id="modal-ex-level">Orta / İleri</span>
+          </div>
+          <div class="modal-meta-cell">
+            <span>Önerilen Hacim</span>
+            <span id="modal-ex-sets">4 Set × 8-10</span>
+          </div>
+          <div class="modal-meta-cell">
+            <span>Dinlenme</span>
+            <span id="modal-ex-rest">90 saniye</span>
+          </div>
+          <div class="modal-meta-cell" style="grid-column: 1 / -1;">
+            <span style="color:var(--accent-primary);">Önerilen Başlangıç / Çalışma Ağırlığı</span>
+            <span id="modal-ex-weight" style="color:var(--accent-primary); font-size:16px;">-</span>
+          </div>
+        </div>
+
+        <!-- Ağırlık ve Yüklenme Rehberi -->
+        <div class="modal-section" style="background:rgba(16, 185, 129, 0.08); border:1px solid rgba(16, 185, 129, 0.25); border-radius:var(--radius-md); padding:16px;">
+          <h5 style="color:var(--accent-primary); margin-bottom:6px;">🎯 Kişisel Ağırlık & Yüklenme Stratejisi</h5>
+          <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:4px;" id="modal-ex-weight-target">-</div>
+          <p id="modal-ex-weight-detail" style="font-size:13px; color:#cbd5e1; margin-bottom:8px;">-</p>
+          <p style="font-size:12px; color:var(--text-muted); line-height:1.4;">
+            💡 <strong>Progresif Yüklenme (Progressive Overload):</strong> Çalışma setinden önce 1-2 set boş bar / hafif kilo (%50) ile 10 tekrar eklem ısınması yapın. Belirtilen set ve tekrarları noksansız tamamladığınızda bir sonraki hafta ağırlığı %2.5 - %5 artırın.
+          </p>
+        </div>
+
+        <!-- Açıklama -->
+        <div class="modal-section">
+          <h5>📖 Egzersiz Hakkında</h5>
+          <p id="modal-ex-desc">-</p>
+        </div>
+
+        <!-- Nasıl Yapılır? -->
+        <div class="modal-section">
+          <h5>🛠️ Nasıl Yapılır? (Doğru Form & Adımlar)</h5>
+          <p id="modal-ex-execution" style="white-space:pre-line;">-</p>
+        </div>
+
+        <!-- Doğru Form & İpuçları -->
+        <div class="modal-section">
+          <h5>💡 Antrenör İpuçları</h5>
+          <p id="modal-ex-tips">-</p>
+        </div>
+
+        <!-- Yaygın Hatalar -->
+        <div class="modal-section">
+          <h5>⚠️ Dikkat Edilmesi Gerekenler & Yaygın Hatalar</h5>
+          <p id="modal-ex-mistakes" style="color:#fca5a5;">-</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="modal-close-btn-bottom">
+          Kapat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       EGZERSİZ KÜTÜPHANESİ MODALI
+       ========================================================================= -->
+  <div class="modal-overlay" id="library-modal">
+    <div class="modal-container" style="max-width:840px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Egzersiz Veri Tabanı Kütüphanesi</h3>
+          <p>FitForge motorunda kayıtlı tüm 60+ biyomekanik egzersiz</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-library-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="library-filters">
+          <input 
+            type="text" 
+            id="library-search-input" 
+            class="library-search-input" 
+            placeholder="🔍 Egzersiz adı, kas grubu veya ekipman ara (örn: Squat, Göğüs, Dambıl)..." 
+          />
+        </div>
+        <div class="library-items-list" id="library-items-list">
+          <!-- Dinamik Egzersiz Listesi -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       BİLGİLERİ SIFIRLAMA ONAY MODALI
+       ========================================================================= -->
+  <div class="modal-overlay" id="reset-confirm-modal" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width:500px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 style="color:#f87171;">🗑️ Bilgileri Sıfırla & Yeni Ekle</h3>
+          <p>Kayıtlı veriler temizlenecek</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-reset-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--text-secondary); font-size:14px; line-height:1.6;">
+          Mevcut kişisel bilgileriniz (ad, yaş, kilo, boy, hedef ve oluşturulan program) tamamen temizlenecektir.
+          <br /><br />
+          Sıfırlama işleminden sonra doğrudan yeni bilgilerinizi girebileceğiniz <strong>Adım 2 (Kişisel Bilgiler)</strong> ekranına yönlendirileceksiniz. Devam etmek istiyor musunuz?
+        </p>
+      </div>
+      <div class="modal-footer" style="gap:10px;">
+        <button type="button" class="btn btn-outline" id="btn-cancel-reset">
+          Vazgeç
+        </button>
+        <button type="button" class="btn btn-danger" id="btn-confirm-reset-action">
+          Evet, Sıfırla ve Yeni Bilgi Ekle
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       KULLANICI PROFİL SİSTEMİ MODALI
+       ========================================================================= -->
+  <div class="modal-overlay" id="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-modal-title">
+    <div class="modal-container" style="max-width:680px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="profile-modal-title">👤 Sporcu Profilim</h3>
+          <p>Kişisel bilgileriniz, profil fotoğrafınız ve antrenman parametreleriniz</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-profile-close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Profil Üst Kartı (Avatar/Fotoğraf + Başlık + Rozetler) -->
+        <div class="profile-card-header">
+          <div class="profile-avatar-display" id="profile-avatar-display">🦁</div>
+          <div class="profile-header-meta">
+            <h4 class="profile-name-title" id="profile-name-title">Sporcu</h4>
+            <div class="profile-badges-row">
+              <span class="profile-badge-chip branch" id="profile-badge-sport">🏋️ Fitness</span>
+              <span class="profile-badge-chip level" id="profile-badge-level">⚡ Orta Seviye</span>
+              <span class="profile-badge-chip rank" id="profile-badge-rank">🏆 Elmas IV</span>
+            </div>
+            <p class="profile-bio-text" id="profile-bio-display">Disiplin motivasyonun bittiği yerde başlar. Her gün %1 daha iyiye!</p>
+          </div>
+        </div>
+
+        <!-- İstatistik Çubukları -->
+        <div class="profile-stats-grid">
+          <div class="profile-stat-box">
+            <div class="pstat-num" id="profile-stat-workouts">12</div>
+            <div class="pstat-lbl">Tamamlanan Seans</div>
+          </div>
+          <div class="profile-stat-box">
+            <div class="pstat-num" id="profile-stat-streak">🔥 5 Gün</div>
+            <div class="pstat-lbl">Aktif Seri (Streak)</div>
+          </div>
+          <div class="profile-stat-box">
+            <div class="pstat-num" id="profile-stat-target-cal">2650</div>
+            <div class="pstat-lbl">Hedef Kalori (kcal)</div>
+          </div>
+          <div class="profile-stat-box">
+            <div class="pstat-num" id="profile-stat-water">3.2 L</div>
+            <div class="pstat-lbl">Günlük Su Hedefi</div>
+          </div>
+        </div>
+
+        <!-- Profil Fotoğrafı Yükleme / Avatar Seçimi -->
+        <div class="modal-section">
+          <h5>📸 Profil Fotoğrafı ve Görseli</h5>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+              <input type="file" id="profile-file-input" accept="image/*" style="display:none;" />
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-upload-profile-photo">
+                📁 Kendi Fotoğrafını Yükle
+              </button>
+              <span style="font-size:12px; color:var(--text-muted);">veya bir avatar seçin:</span>
+            </div>
+            <div class="avatar-picker-grid">
+              <button type="button" class="avatar-option-btn selected" data-avatar="🦁">🦁</button>
+              <button type="button" class="avatar-option-btn" data-avatar="⚒️" title="Örs & Çekiç">⚒️</button>
+              <button type="button" class="avatar-option-btn" data-avatar="⚡">⚡</button>
+              <button type="button" class="avatar-option-btn" data-avatar="🏋️">🏋️</button>
+              <button type="button" class="avatar-option-btn" data-avatar="🥋">🥋</button>
+              <button type="button" class="avatar-option-btn" data-avatar="🏆">🏆</button>
+              <button type="button" class="avatar-option-btn" data-avatar="🦅">🦅</button>
+              <button type="button" class="avatar-option-btn" data-avatar="🐺">🐺</button>
+              <button type="button" class="avatar-option-btn" data-avatar="🥊">🥊</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profil Bilgileri Formu (Kapsamlı Düzenleme) -->
+        <div class="modal-section">
+          <h5>✏️ Kişisel & Fiziksel Bilgiler</h5>
+          <div class="form-grid two-cols">
+            <div class="form-group">
+              <label class="form-label" for="profile-input-name">Adınız Soyadınız</label>
+              <input type="text" id="profile-input-name" class="form-input" placeholder="Ad Soyad" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-input-gender">Cinsiyet</label>
+              <select id="profile-input-gender" class="form-input">
+                <option value="erkek">Erkek</option>
+                <option value="kadin">Kadın</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-input-age">Yaş</label>
+              <input type="number" id="profile-input-age" class="form-input" min="14" max="95" placeholder="Örn: 24" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-input-height">Boy (cm)</label>
+              <input type="number" id="profile-input-height" class="form-input" min="120" max="230" placeholder="Örn: 180" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-input-weight">Mevcut Kilo (kg)</label>
+              <input type="number" id="profile-input-weight" class="form-input" step="0.5" min="35" max="250" placeholder="Örn: 78" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-input-target-weight">Hedef Kilo (kg)</label>
+              <input type="number" id="profile-input-target-weight" class="form-input" step="0.5" placeholder="Örn: 82" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Spor, Hedef ve Seviye Bilgileri -->
+        <div class="modal-section">
+          <h5>🎯 Spor, Hedef & Antrenman Ayarları</h5>
+          <div class="form-grid two-cols">
+            <div class="form-group">
+              <label class="form-label" for="profile-input-goal">Ana Hedef</label>
+              <select id="profile-input-goal" class="form-input">
+                <option value="kas-kazanimi">💪 Kas Kütlesi Kazanımı</option>
+                <option value="kilo-verme">🔥 Kilo Verme & Yağ Yakımı</option>
+                <option value="guc">⚡ Maksimum Güç</option>
+                <option value="formda-kalma">🌱 Formda Kalmak</option>
+                <option value="kondisyon">🏃 Genel Kondisyon</option>
+                <option value="yag-yakimi">⚖️ Yağ Oranını Azaltmak</option>
+                <option value="kas-koruma">🛡️ Kas Kütlesini Korumak</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-input-level">Antrenman Seviyesi</label>
+              <select id="profile-input-level" class="form-input">
+                <option value="baslangic">🌱 Başlangıç Seviyesi</option>
+                <option value="orta">🏆 Orta Seviye</option>
+                <option value="ileri">⚡ İleri Seviye</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-input-intensity">Antrenman Zorluğu (RPE)</label>
+              <select id="profile-input-intensity" class="form-input">
+                <option value="light">🟢 Hafif (RPE 6 - 7)</option>
+                <option value="standard">🟡 Standart / Dengeli (RPE 8)</option>
+                <option value="high">🔴 Maksimum Yoğunluk (RPE 9 - 10)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-input-duration">Seans Süresi (dk)</label>
+              <select id="profile-input-duration" class="form-input">
+                <option value="30">30 Dakika</option>
+                <option value="45">45 Dakika</option>
+                <option value="60">60 Dakika (Önerilen)</option>
+                <option value="75">75 Dakika</option>
+                <option value="90">90 Dakika</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- İlgilendiği Spor Branşları (Çoklu Seçim) -->
+          <div style="margin-top:14px;">
+            <label class="form-label" style="margin-bottom:8px;">İlgilenilen Spor Branşları (Çoklu Seçim):</label>
+            <div class="profile-sports-checklist" id="profile-sports-checklist">
+              <label class="profile-sport-chk"><input type="checkbox" value="fitness" checked /> 🏋️ Fitness</label>
+              <label class="profile-sport-chk"><input type="checkbox" value="boks" /> 🥊 Boks</label>
+              <label class="profile-sport-chk"><input type="checkbox" value="futbol" /> ⚽ Futbol</label>
+              <label class="profile-sport-chk"><input type="checkbox" value="basketbol" /> 🏀 Basketbol</label>
+              <label class="profile-sport-chk"><input type="checkbox" value="kosu" /> 🏃 Koşu</label>
+              <label class="profile-sport-chk"><input type="checkbox" value="kalisteniks" /> 🤸 Kalisteniks</label>
+              <label class="profile-sport-chk"><input type="checkbox" value="yuzme" /> 🏊 Yüzme</label>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:14px;">
+            <label class="form-label" for="profile-input-bio">Sporcu Mottosu / Biyografi</label>
+            <input type="text" id="profile-input-bio" class="form-input" placeholder="Hedefinizi veya mottonuzu yazın..." />
+          </div>
+
+          <div class="form-group" style="margin-top:10px;">
+            <label class="form-label" for="profile-input-notes">Sakatlık / Sağlık & Özel Notlar</label>
+            <input type="text" id="profile-input-notes" class="form-input" placeholder="Varsa bel, omuz, diz hassasiyeti vb..." />
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content:space-between;">
+        <button type="button" class="btn btn-outline" id="btn-close-profile">Kapat</button>
+        <button type="button" class="btn btn-primary" id="btn-save-profile">💾 Tüm Bilgileri Kaydet & Güncelle</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       UYGULAMA GERİ BİLDİRİM MODALI
+       ========================================================================= -->
+  <div class="modal-overlay" id="feedback-modal" role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
+    <div class="modal-container" style="max-width:520px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="feedback-modal-title">💬 FitForge Geri Bildirim & İyileştirme</h3>
+          <p>Uygulamayı geliştirmemize yardımcı olun, fikirlerinizi duymak istiyoruz!</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-feedback-close">✕</button>
+      </div>
+
+      <form id="feedback-form" class="modal-body" style="gap:16px; display:flex; flex-direction:column;">
+        <div>
+          <label class="form-label" style="margin-bottom:8px;">FitForge Deneyimini Puanlayın:</label>
+          <div class="star-rating-row" id="feedback-stars">
+            <span class="star-btn active" data-rating="1">★</span>
+            <span class="star-btn active" data-rating="2">★</span>
+            <span class="star-btn active" data-rating="3">★</span>
+            <span class="star-btn active" data-rating="4">★</span>
+            <span class="star-btn active" data-rating="5">★</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="feedback-category">Geri Bildirim Kategorisi</label>
+          <select id="feedback-category" class="form-input" required>
+            <option value="Öneri & Fikir">💡 Yeni Özellik / Öneri</option>
+            <option value="Hata Bildirimi">🐞 Hata / Bug Bildirimi</option>
+            <option value="Egzersiz İsteği">🏋️ Yeni Egzersiz İsteği</option>
+            <option value="Beslenme">🥗 Kalori & Beslenme Hakkında</option>
+            <option value="Teşekkür">❤️ Teşekkür & Genel Memnuniyet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="feedback-email">E-posta Adresiniz (Opsiyonel)</label>
+          <input type="email" id="feedback-email" class="form-input" placeholder="Geri dönüş yapmamızı isterseniz girin..." />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="feedback-message">Mesajınız & Detaylar</label>
+          <textarea id="feedback-message" class="form-input" rows="4" placeholder="Uygulama hakkında düşünceleriniz, önerileriniz veya karşılaştığınız durumlar..." required></textarea>
+        </div>
+
+        <div class="modal-footer" style="padding:0; margin-top:8px;">
+          <button type="button" class="btn btn-outline" id="btn-close-feedback">Vazgeç</button>
+          <button type="submit" class="btn btn-primary" id="btn-submit-feedback">
+            🚀 Geri Bildirimi Gönder
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       GELİŞİM FOTOĞRAFI EKLEME MODALI
+       ========================================================================= -->
+  <div class="modal-overlay" id="photo-modal" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width:500px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>📸 Yeni Gelişim Fotoğrafı Ekle</h3>
+          <p>Aylık fiziksel dönüşümünüzü fotoğraflayın ve kaydedin</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-photo-close">✕</button>
+      </div>
+
+      <form id="photo-upload-form" class="modal-body" style="gap:16px; display:flex; flex-direction:column;">
+        <div class="form-group">
+          <label class="form-label">Fotoğraf Seçin (JPG, PNG)</label>
+          <input type="file" id="modal-input-photo-file" class="form-input" accept="image/*" required />
+          <div id="modal-photo-preview" style="display:none; margin-top:10px; width:100%; height:180px; border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border-medium);">
+            <img id="modal-photo-preview-img" style="width:100%; height:100%; object-fit:cover;" alt="Önizleme" />
+          </div>
+        </div>
+
+        <div class="form-grid two-cols">
+          <div class="form-group">
+            <label class="form-label" for="modal-photo-month">Dönem / Ay</label>
+            <select id="modal-photo-month" class="form-input">
+              <option value="Başlangıç (Gün 1)">Başlangıç (Gün 1)</option>
+              <option value="1. Ay Sonu">1. Ay Sonu</option>
+              <option value="2. Ay Sonu">2. Ay Sonu</option>
+              <option value="3. Ay Sonu">3. Ay Sonu</option>
+              <option value="4. Ay Sonu">4. Ay Sonu</option>
+              <option value="5. Ay Sonu">5. Ay Sonu</option>
+              <option value="6. Ay Sonu">6. Ay Sonu</option>
+              <option value="12. Ay Sonu">12. Ay Sonu</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="modal-photo-weight">Ölçülen Kilo (kg)</label>
+            <input type="number" id="modal-photo-weight" class="form-input" placeholder="Örn: 78.5" step="0.1" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="modal-photo-notes">Aylık Değişim Notu</label>
+          <input type="text" id="modal-photo-notes" class="form-input" placeholder="Örn: Omuz başları belirginleşti, karın hatları çıktı..." />
+        </div>
+
+        <div class="modal-footer" style="padding:0; margin-top:8px;">
+          <button type="button" class="btn btn-outline" id="btn-close-photo">Vazgeç</button>
+          <button type="submit" class="btn btn-primary" id="btn-confirm-save-photo">
+            💾 Fotoğrafı Günlüğe Kaydet
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       TOAST BİLDİRİMİ
+       ========================================================================= -->
+  <div class="toast-notice" id="toast-notice">Bildirim</div>
+
+  <!-- =========================================================================
+       Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-text">
+        © 2026 FitForge. Kişiselleştirilmiş Spor & Egzersiz Programlama Web Uygulaması.
+      </div>
+      <div class="footer-academic-badge">
+        🎓 Üniversite Yazılım Dersi Projesi · HTML5 / CSS3 / Vanilla JS
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Bağlantısı -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
